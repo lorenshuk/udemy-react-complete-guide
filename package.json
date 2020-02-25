@@ -1,0 +1,11 @@
+{
+  "name": "udemy-react-complete-guide",
+  "version": "1.0.0",
+  "description": "Udemy Course",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Me",
+  "license": "ISC"
+}
