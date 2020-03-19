@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person'
+import Person from './Person/Person';
+import UserOutput from './UserOutput/UserOutput';
+import UserInput from './UserInput/UserInput';
 
 class App extends Component {
   state =  {
@@ -8,9 +10,13 @@ class App extends Component {
       { name: 'Max', age: 28 },
       { name: 'Manu', age: 24 },
       { name: 'Stephanie', age: 22 }
-    ]
+    ],
+    username: 'DefaultUsername'
   }
-
+  
+  /**************** */
+  /* EVENT HANDLERS */
+  /**************** */
   switchNameHandler = (newName) => {
     this.setState({
       persons: [
@@ -31,13 +37,30 @@ class App extends Component {
     })
   }
   
-  
+  usernameChangeHandler = (event) => {
+    this.setState({username: event.target.value})
+  }
+
+
+  /********************* */
+  /* Output this bitch! */
+  /********************* */
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
+
     return (
       <div className="App">
         <h1>Hi, I’m a React App</h1>
         <p>This is really working!</p>
-        <button onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button>
+        <button 
+          style={style}
+          onClick={() => this.switchNameHandler('Maximilian')}>Switch Name</button>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age} />
@@ -51,6 +74,15 @@ class App extends Component {
         <Person 
           name={this.state.persons[2].name} 
           age={this.state.persons[2].age} />
+       
+        {/*** ASSIGNMENT 1 ***/}
+        <UserInput 
+          username={this.state.username} 
+          changed={this.usernameChangeHandler}
+        />
+        <UserOutput 
+          username={this.state.username} 
+        />
       </div>
     )
   }
