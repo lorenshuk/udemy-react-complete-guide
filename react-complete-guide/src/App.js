@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import Person from './Person/Person';
-import Radium from 'radium'
-
 /*** ASSIGNMENT 1: Lesson 50 3/19/20
 import UserOutput from './UserOutput/UserOutput';
 import UserInput from './UserInput/UserInput';
 ***/
+/* Lesson 70: Removed for Styled Components Library - 3/30/20 3:25 PM
+import Radium, { StyleRoot } from 'radium'
+*/
+import styled from 'styled-components'
+
+const StyledButton = styled.button`
+  background-color: blue;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  &:hover: {
+    background-color: lightgreen;
+    color: black
+  }
+`
 
 class App extends Component {
   state =  {
@@ -54,6 +70,7 @@ class App extends Component {
   /* Output this bitch! */
   /********************* */
   render() {
+/*     
     const style = {
       backgroundColor: 'green',
       color: 'white',
@@ -66,7 +83,7 @@ class App extends Component {
         color: 'black'
       }
     }
-
+ */
     let persons = null
     let buttonText = 'Show Persons'
 
@@ -85,11 +102,13 @@ class App extends Component {
           })}
         </div>
 
+        /*         
         style.backgroundColor = 'red'
         style[':hover'] = {
           backgroundColor: 'salmon',
           color: 'black'
         }
+        */
     }
  
     let classes = []
@@ -104,13 +123,14 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I’m a React App</h1>
         <p className={classes.join(' ')}>This is really working!</p>
-        <button 
-          style={style}
-          onClick={() => this.togglePersonsHandler()}>{buttonText}</button>
+        {/* <button style={style}*/}
+        <StyledButton onClick={() => this.togglePersonsHandler()}>
+          {buttonText}
+        </StyledButton>
         {persons}
       </div>
     )
   }
 }
      
-export default Radium(App);
+export default App;
