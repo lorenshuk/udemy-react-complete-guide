@@ -6,13 +6,13 @@ import Person from './Person/Person';
 import UserOutput from './UserOutput/UserOutput';
 import UserInput from './UserInput/UserInput';
 ***/
-/* Lesson 70: Removed for Styled Components Library - 3/30/20 3:25 PM
-import Radium, { StyleRoot } from 'radium'
-*/
+/*** Lesson 70: Removed for Styled Components Library - 3/30/20 3:25 PM ***/
+//import Radium, { StyleRoot } from 'radium'
 import styled from 'styled-components'
 
+
 const StyledButton = styled.button`
-  background-color: blue;
+  background-color: ${props => props.alt ? 'salmon' : 'green'};
   color: white;
   font: inherit;
   border: 1px solid blue;
@@ -23,7 +23,6 @@ const StyledButton = styled.button`
     color: black
   }
 `
-
 class App extends Component {
   state =  {
     persons: [
@@ -102,7 +101,7 @@ class App extends Component {
           })}
         </div>
 
-        /*         
+        /* Removed for Style Components Package 3/31/20         
         style.backgroundColor = 'red'
         style[':hover'] = {
           backgroundColor: 'salmon',
@@ -124,7 +123,7 @@ class App extends Component {
         <h1>Hi, I’m a React App</h1>
         <p className={classes.join(' ')}>This is really working!</p>
         {/* <button style={style}*/}
-        <StyledButton onClick={() => this.togglePersonsHandler()}>
+        <StyledButton alt={this.state.showPersons} onClick={() => this.togglePersonsHandler()}>
           {buttonText}
         </StyledButton>
         {persons}
