@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classesCSS from './App.css';
 import Person from './Person/Person';
 /*** ASSIGNMENT 1: Lesson 50 3/19/20
 import UserOutput from './UserOutput/UserOutput';
@@ -56,22 +56,10 @@ class App extends Component {
   /* Output this bitch! */
   /********************* */
   render() {
-/*     
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    }
- */
+
     let persons = null
     let buttonText = 'Show Persons'
+    let btnClass = [classesCSS.Button]
 
     if (this.state.showPersons) {
       buttonText = 'Hide Persons';
@@ -87,30 +75,23 @@ class App extends Component {
             />
           })}
         </div>
-
-        /* Removed for Style Components Package 3/31/20         
-        style.backgroundColor = 'red'
-        style[':hover'] = {
-          backgroundColor: 'salmon',
-          color: 'black'
-        }
-        */
+      
+      btnClass.push(classesCSS.Red)
     }
  
     let classes = []
     if (this.state.persons.length <= 2) {
-      classes.push('red')
+      classes.push(classesCSS.red)
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold')
+      classes.push(classesCSS.bold)
     }
 
     return (
-      <div className="App">
+      <div className={classesCSS.App}>
         <h1>Hi, I’m a React App</h1>
         <p className={classes.join(' ')}>This is really working!</p>
-        {/* <button style={style}*/}
-        <button className='button' onClick={this.togglePersonsHandler}>
+        <button className={btnClass.join(' ')} onClick={this.togglePersonsHandler}>
           {buttonText}
         </button>
         {persons}
