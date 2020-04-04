@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import Person from './Person/Person';
 /*** ASSIGNMENT 1: Lesson 50 3/19/20
@@ -8,21 +7,9 @@ import UserInput from './UserInput/UserInput';
 ***/
 /*** Lesson 70: Removed for Styled Components Library - 3/30/20 3:25 PM ***/
 //import Radium, { StyleRoot } from 'radium'
-import styled from 'styled-components'
+/*** Lesson 73: Removed for CSS Modules Styling 4/3/20 5:45 PM ***/
+//import styled from 'styled-components'
 
-
-const StyledButton = styled.button`
-  background-color: ${props => props.alt ? 'salmon' : 'green'};
-  color: white;
-  font: inherit;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: pointer;
-  &:hover: {
-    background-color: lightgreen;
-    color: black
-  }
-`
 class App extends Component {
   state =  {
     persons: [
@@ -123,9 +110,9 @@ class App extends Component {
         <h1>Hi, I’m a React App</h1>
         <p className={classes.join(' ')}>This is really working!</p>
         {/* <button style={style}*/}
-        <StyledButton alt={this.state.showPersons} onClick={() => this.togglePersonsHandler()}>
+        <button className='button' onClick={this.togglePersonsHandler}>
           {buttonText}
-        </StyledButton>
+        </button>
         {persons}
       </div>
     )
