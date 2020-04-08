@@ -3,6 +3,7 @@ import classes from './Person.css';
 // import Radium from 'radium';
 import styled from 'styled-components'
 
+/*
 const StyledDiv = styled.div`
     width: 60%;
     margin: 16px auto;
@@ -15,6 +16,8 @@ const StyledDiv = styled.div`
         width: 450px;
     }
 `
+*/
+
 const person = (props) => {
     return (
        <div className={classes.Person}>
