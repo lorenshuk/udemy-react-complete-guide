@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classesCSS from './App.css';
-import Person from './Person/Person';
+import Person from './Persons/Person/Person';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 /*** ASSIGNMENT 1: Lesson 50 3/19/20
 import UserOutput from './UserOutput/UserOutput';
