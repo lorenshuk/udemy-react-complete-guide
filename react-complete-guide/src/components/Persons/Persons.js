@@ -3,6 +3,32 @@ import Person from './Person/Person'
 
 // Convert to Class-Based Component 4/13/20 5:24 PM
 class Persons extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            log: ''
+        }
+        console.log('[Persons.js] constructor()')
+    }
+    static getDerivedStateFromProps(props, state) {
+        console.log(`[Persons.js] getDerivedStateFromProps(props, state)`)
+        return state
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log(`[Persons.js] shouldComponentUpdate()`)
+        // Have to return true/false - whether or not to keep going
+        return true
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log(`[Persons.js] getSnapshotBeforeUpdate(prevProps, prevState)`, prevProps)
+        return prevState
+    }
+    componentDidUpdate() {
+        console.log(`[Persons.js] componentDidUpdate()`)
+    }
+
+
+
     render() {
         console.log('[Persons.js] rendering...')
 
