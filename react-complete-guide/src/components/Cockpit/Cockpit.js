@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
+    useEffect( () => {
+        // test delete me
+        console.log('[Cockpit.js] useEffect()')
+    })
+
     let assignedClasses = []
 
     if (props.persons.length <= 2) {
