@@ -4,7 +4,20 @@ import classes from './Cockpit.css';
 const cockpit = (props) => {
     useEffect( () => {
         // test delete me
-        console.log('[Cockpit.js] useEffect()')
+        console.log('[Cockpit.js] useEffect() #1')
+        // HTTP REQUEST
+       const timer = setTimeout( () => {
+            alert('[Cockpit.js] useEffect() #1: Initial HTTP Request here...');
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer)
+            console.log('[Cockpit.js] useEffect() #1: Cleanup Code')
+        }
+    }, [])
+
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect() #2')
     })
 
     let assignedClasses = []
