@@ -14,11 +14,17 @@ class Persons extends Component {
         console.log(`[Persons.js] getDerivedStateFromProps(props, state)`)
         return state
     }
+    
     shouldComponentUpdate(nextProps, nextState) {
         console.log(`[Persons.js] shouldComponentUpdate()`)
-        // Have to return true/false - whether or not to keep going
-        return true
+
+        if (nextProps.persons !== this.props.Persons) {
+            return true
+        } else {
+            return false
+        }
     }
+
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log(`[Persons.js] getSnapshotBeforeUpdate(prevProps, prevState)`, prevProps)
         return prevState
