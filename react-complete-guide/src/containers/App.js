@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import classesCSS from './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons'
-import WithClass from '../hoc/WithClass'
+import withClass from '../hoc/withClass'
+import Auxiliary from '../hoc/Auxiliary'
 
 class App extends Component {
   constructor(props) {
@@ -74,8 +75,6 @@ class App extends Component {
   /* Output this bitch! */
   /********************* */
   render() {
-    console.log(`[App.js] render()`)
-
     let persons = null
 
     if (this.state.showPersons) {
@@ -88,8 +87,7 @@ class App extends Component {
     }
 
     return (
-      
-      <WithClass classes={classesCSS.App}>
+      <Auxiliary>
         <button onClick={() => {
             this.setState({showCockpit: !this.state.showCockpit});
         }}>
@@ -105,9 +103,9 @@ class App extends Component {
           /> : null 
         }
         {persons}
-      </WithClass>
+      </Auxiliary>
     )
   }
 }
 
-export default App;
+export default withClass(App, classesCSS.App);
