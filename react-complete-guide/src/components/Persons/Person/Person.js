@@ -13,7 +13,13 @@ class Person extends Component {
            <Auxiliary>
             <p key="i1" onClick={this.props.click}>Hi! I'm {this.props.name}. I'm {this.props.age} years old.</p>
             <p key="i2">{this.props.children}</p>
-            <input key="i3" type="text" onChange={this.props.changed} value={this.props.name} />
+            <input 
+                key="i3" 
+                ref={ (inputEl) => {this.inputElemnent = inputEl} }
+                type="text" 
+                onChange={this.props.changed} 
+                value={this.props.name} 
+            />
            </Auxiliary>
         )
 
