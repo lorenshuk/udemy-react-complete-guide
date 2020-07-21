@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classes from './Person.css';
 import Auxiliary from '../../../hoc/Auxiliary'
 import withClass from '../../../hoc/withClass'
+import AuthContext from '../../../context/auth-context'
 
 // Converted to a Class-Based component for Lifecycle Hook Demo
 class Person extends Component {
@@ -19,7 +20,11 @@ class Person extends Component {
     render () {
        return (
            <Auxiliary>
-            {this.props.isAuth ? <p>Authenticated</p> : <p>Please log in</p>}
+            <AuthContext.Consumer>
+                { (context) => 
+                   this.props.isAuth ? <p>Authenticated</p> : <p>Please Log in</p>
+                }
+            </AuthContext.Consumer>
             <p key="i1" onClick={this.props.click}>Hi! I'm {this.props.name}. I'm {this.props.age} years old.</p>
             <p key="i2">{this.props.children}</p>
             <input 
