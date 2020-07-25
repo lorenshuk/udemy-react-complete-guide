@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import classes from './Person.css';
 import Auxiliary from '../../../hoc/Auxiliary'
-import withClass from '../../../hoc/withClass'
+import withClass from '../../../hoc/WithClass'
 import AuthContext from '../../../context/auth-context'
 
 // Converted to a Class-Based component for Lifecycle Hook Demo
