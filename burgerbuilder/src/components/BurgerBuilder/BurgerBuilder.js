@@ -3,7 +3,7 @@
         -> Replace the <div>Burger</div> with the <Burger> Comp
 */
 import React, { Component } from 'react';
-import Aux from '../../hocs/Auxiliary';
+import Aux from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal'
@@ -70,9 +70,16 @@ class BurgerBuilder extends Component {
  
     purchaseHandler = () => {
         this.setState({purchasing: true})
-        // ** Test: Delete Me
-        console.log(`purchaseHandler.purchasing: ${this.state.purchasing}`)
-        
+    }
+
+    purchaseCancelHandler = () => {
+        this.setState({purchasing: false})
+    }
+
+    purchaseContinueHandler = () => {
+        // Test: Still have to write code for summarizing & completing tx
+        console.log('purchaseContinueHandler() fired...');
+
     }
 
     render() {
@@ -86,9 +93,13 @@ class BurgerBuilder extends Component {
 
         return (
             <Aux>
-                <Modal show={this.state.purchasing}>
-                    <OrderSummary ingredients={this.state.ingredients}>
-                    </OrderSummary>
+                <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
+                    <OrderSummary 
+                        ingredients={this.state.ingredients}
+                        price={this.state.totalPrice}
+                        purchaseContinued={this.purchaseContinueHandler}
+                        purchaseCancelled={this.purchaseCancelHandler}
+                    />
                 </Modal>
                 {/* Visual representation of the Burger 
                     <div>Burger</div> -> Replaced with the <Burger> Class-Component - 8/13/20
