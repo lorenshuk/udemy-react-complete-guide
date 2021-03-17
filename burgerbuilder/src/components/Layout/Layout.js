@@ -1,17 +1,33 @@
-import React from 'react';
+// Convert to Class Component to allow Methods & States
+import React, { Component } from 'react';
 import Aux from "../../hoc/Auxiliary";
 import classes from './Layout.css';
-import Toolbar from '../../Toolbar/Toolbar'
+import Toolbar from '../Navigation/NavigationItems/Toolbar/Toolbar'
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
 
-const layout = (props) => (
-    <Aux>
-        <Toolbar />
-        <SideDrawer />
-        <main className={classes.Content}>
-            {props.children}
-        </main>
-    </Aux>
-);
+class Layout extends Component {
+    state = {
+        showSideDrawer: false
+    }
 
-export default layout
+    sideDrawerClosedHandler = () => {
+        this.setState({showSideDrawer: false})
+    }
+
+    render() {
+        return (
+            <Aux>
+                <Toolbar className={Toolbar.DesktopOnly} />
+                <SideDrawer 
+                    open={this.state.showSideDrawer}
+                    closed={this.sideDrawerClosedHandler}
+                />
+                <main className={classes.Content}>
+                    {this.props.children}
+                </main>
+            </Aux>
+        )
+    }
+}
+
+export default Layout
