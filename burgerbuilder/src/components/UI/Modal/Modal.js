@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // (b.) Import the CSS file from the Course Material
 import classes from './Modal.css'
-import Aux from '../../../hoc/Auxiliary'
+import Aux from '../../../hoc/Auxiliary/Auxiliary'
 import Backdrop from './../Backdrop/Backdrop'
 
 class Modal extends Component {
@@ -11,7 +11,7 @@ class Modal extends Component {
         return nextProps.show !== this.props.show
     }
 
-    componentWillUpdate() {
+    componentDidUpdate() {
         console.log('[Modal] WillUpdate')
     }
 
