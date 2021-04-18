@@ -10,7 +10,7 @@ import './Blog.css';
 class Blog extends Component {
     state = {
         posts: [],
-        selectedPostId: 0
+        selectedPostId: null
     }
 
     /* Fetch the blog dummy data with Axios
