@@ -1,12 +1,26 @@
 import Expenses from "./components/Expenses";
-import "./components/Expenses.css";
 
 function App() {
   // Sample data for testing 7/21/21
   const expenses = [
-    { title: "Rent", amount: 1100.0, date: new Date(2021, 0, 1) },
-    { title: "Car Insurance", amount: 295.67, date: new Date(2021, 6, 21) },
-    { title: "Health Insurance", amount: 300.0, date: new Date(2021, 6, 28) },
+    {
+      id: 0,
+      title: "Rent",
+      amount: 1100.0,
+      date: new Date(2021, 0, 1),
+    },
+    {
+      id: 1,
+      title: "Car Insurance",
+      amount: 295.67,
+      date: new Date(2021, 6, 21),
+    },
+    {
+      id: 3,
+      title: "Health Insurance",
+      amount: 300.0,
+      date: new Date(2021, 6, 28),
+    },
   ];
 
   return (
