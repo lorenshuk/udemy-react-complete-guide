@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   // Sample data for testing 7/21/21
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started2!</h2>
+      <NewExpense />
       <Expenses expenses={expenses} />
     </div>
   );
